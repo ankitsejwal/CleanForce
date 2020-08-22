@@ -1,20 +1,24 @@
 const mongoose = require("mongoose");
-const { string } = require("joi");
+const joi = require("joi");
+
+// set global option to remove warnings in terminal
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useUnifiedTopology", true);
 
 mongoose
-  .connect("mongodb://localhost/cleanforce", { useNewUrlParser: true })
+  .connect("mongodb://localhost/cleanforce")
   .then(() => console.log("Database connected"))
   .catch((err) => console.error(err));
 
-const stockorderSchema = mongoose.Schema({
-  date: Date,
+const stockorderSchema = new mongoose.Schema({
+  date: { type: Date, default: Date.now },
   ordered_by: {
-    name: String,
-    email: String,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
   },
   ordered_to: {
-    name: String,
-    email: String,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
   },
   delivery: {
     officePickup: Boolean,
