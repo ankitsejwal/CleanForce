@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { string } = require("joi");
 
 mongoose
-  .connect("mongodb://localhost/cleanforce")
+  .connect("mongodb://localhost/cleanforce", { useNewUrlParser: true })
   .then(() => console.log("Database connected"))
   .catch((err) => console.error(err));
 
