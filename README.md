@@ -1,2 +1,3 @@
-# cleanforce
-App for cleaning company
+# order inventory
+
+Inventory management
