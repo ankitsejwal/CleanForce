@@ -1,17 +1,6 @@
 const express = require("express");
-const order = require("../models/order");
+const stockOrder = require("../models/order");
 const router = express.Router();
-
-const stock = [
-  {
-    name: "lsjkdf",
-    quantity: 1,
-  },
-  {
-    name: "lsjfd",
-    quantity: 2,
-  },
-];
 
 // get all stock orders
 router.get("/", (req, res) => {

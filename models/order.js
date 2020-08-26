@@ -10,7 +10,7 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.error(err));
 
-const stockorderSchema = new mongoose.Schema({
+const stockOrderSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   ordered_by: {
     name: { type: String, required: true },
@@ -195,3 +195,5 @@ const stockorderSchema = new mongoose.Schema({
     },
   ],
 });
+
+exports.module = mongoose.model("StockOrder", stockOrderSchema);
